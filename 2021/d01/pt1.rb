@@ -1,13 +1,13 @@
-def get_input_data(file)
-  input_file = File.open(file)
+def get_input_data file
+  input_file = File.open file
   file_data = input_file.readlines.map(&:chomp)
   input_file.close
   return file_data
 end
 
 
-def num_depth_measures(file)
-  file_data = get_input_data(file)
+def sonar_sweep file 
+  file_data = get_input_data file
 
   prev_measurement = nil
   num_of_increaments = 0
@@ -21,4 +21,4 @@ def num_depth_measures(file)
   return num_of_increaments
 end
 
-puts num_depth_measures "input1.txt"
+puts sonar_sweep "input.txt"
