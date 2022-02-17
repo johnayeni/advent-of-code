@@ -15,7 +15,6 @@ def positon file
 
   for i in 0..file_data.length
     instruction = file_data[i].to_s.split " "
-    puts instruction
     if instruction[0] == "forward"
       horizontal += instruction[1].to_i
       depth += aim * instruction[1].to_i
