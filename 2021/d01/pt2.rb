@@ -5,15 +5,6 @@ def get_input_data file
   return file_data
 end
 
-def get_sum arr, first, last
-  sum = 0
-  for i in first..last
-    sum += arr[i].to_i
-  end
-  return sum
-end
-
-
 def sonar_sweep file 
   file_data = get_input_data file
 
@@ -21,7 +12,7 @@ def sonar_sweep file
   num_of_increaments = 0
 
   for i in 0..file_data.length - 2
-    sum = get_sum file_data, i, i + 2
+    sum = file_data[i...i + 2].map { |num| num.to_i }.sum
     if prev_sum != 0 and sum > prev_sum
       num_of_increaments += 1
     end
