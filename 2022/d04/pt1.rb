@@ -5,7 +5,7 @@ def get_input_data file
   return file_data
 end
 
-def duplicate_assignment_pairs file
+def overlapping_assignment_pairs file
   file_data = get_input_data file
 
   total = 0
@@ -24,5 +24,5 @@ def duplicate_assignment_pairs file
 end
 
 start = Time.now
-puts duplicate_assignment_pairs "input.txt"
+puts overlapping_assignment_pairs "input.txt"
 puts Time.now - start
