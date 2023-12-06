@@ -8,3 +8,5 @@ I will personally be using this to try out out different programing languages st
 ## Year and language used
 
 [2021](https://adventofcode.com/2021) - [Ruby](https://www.ruby-lang.org/en/)
+[2022](https://adventofcode.com/2022) - [Ruby](https://www.ruby-lang.org/en/)
+[2022](https://adventofcode.com/2023) - [Ruby](https://www.ruby-lang.org/en/)
