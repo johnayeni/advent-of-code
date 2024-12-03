@@ -7,35 +7,6 @@ def get_input_data filename
   input filename
 end
 
-
-def clean_str str
-  do_str = "do()"
-  dont_str = "don't()"
-
-  new_str = ""
-
-  i = 0
-  while i < str.length
-    if str.slice(i, dont_str.length) == dont_str
-      i = i + dont_str.length - 1
-      while i < str.length
-        if str.slice(i, do_str.length) == do_str
-          i = i + do_str.length - 1
-          break
-        end
-        i += 1
-      end
-
-    else
-      new_str.concat str[i]
-      i += 1
-    end
-  end
-
-  new_str
-end
-
-
 def multiplication str
   pattern = /\d+,\d+/
 
@@ -49,13 +20,25 @@ end
 def sum_of_multiplications filename
   file_data = get_input_data filename
 
-  cleaned_str = clean_str file_data
+  operations = /mul\(\d+,\d+\)|do\(\)|don't\(\)/
 
-  pattern = /mul\(\d+,\d+\)/
+  all_operations = file_data.scan(operations)
 
-  matches = cleaned_str.scan(pattern)
+  mul_enabled = true
+  sum = 0
 
-  matches.map{ |m| multiplication m }.sum
+  all_operations.each { |m|
+    case m
+    when "do()"
+      mul_enabled = true
+    when "don't()"
+      mul_enabled = false
+    else
+      sum += multiplication m if mul_enabled
+    end
+  }
+
+  sum
 end
 
 start = Time.now
