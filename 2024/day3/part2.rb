@@ -7,14 +7,10 @@ def get_input_data filename
   input filename
 end
 
-def multiplication str
-  pattern = /\d+,\d+/
+def mul str
+  digits = str.scan(/\d+/)
 
-  matches = str.scan(pattern)
-
-  nums = matches[0].to_s.split ","
-
-  nums[0].to_i * nums[1].to_i
+  digits.map(&:to_i).reduce { |res, d| res * d }
 end
 
 def sum_of_multiplications filename
@@ -34,7 +30,7 @@ def sum_of_multiplications filename
     when "don't()"
       mul_enabled = false
     else
-      sum += multiplication m if mul_enabled
+      sum += mul(m) if mul_enabled
     end
   }
 
