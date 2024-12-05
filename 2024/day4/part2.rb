@@ -1,5 +1,3 @@
-require "set"
-
 def input(filename)
   File.read(filename)
 end
